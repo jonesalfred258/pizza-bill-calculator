@@ -1,0 +1,146 @@
+//Pizza Bill Calculator
+#include<stdio.h>
+int main()
+{
+	int option,type1,type2,cheese,toppings,water,water_no,ketch,ketch_no,drinks,drinks_no,take_away,bill;
+	int bp,cheese_price,toppings_price,water_price,ketch_price,drinks_price,takew_price,gst,tot_bill;
+	printf("What pizza do you want?\n Options are \n 1. Normal \n 2. Delux\n");
+	scanf("%d",&option);
+	if(option==1)
+	{
+		printf("\n There are two types available\n- \n1. Normal Veg \n2. Normal Non-Veg\n");
+		scanf("%d",&type1);
+	}
+	if(option==2)
+	{
+		printf("There are two types available\n- \n1. Delux Veg \n2. Delux Non-Veg\n");
+		scanf("%d",&type2);
+	}
+	printf("\n Select Add Ons");
+	printf("\nExtra Cheese? Press 1. Yes 2. No\n");
+	scanf("%d",&cheese);
+	printf("\nExtra Toppings? Press 1. Yes 2. No\n");
+	scanf("%d",&toppings);
+	printf("\nWater bottle required? Press 1. Yes 2. No\n");
+	scanf("%d",&water);
+	if(water==1)
+	{
+		printf("\nHow many bottles?\n");
+		scanf("%d",&water_no);
+	}	
+	printf("\nKetchup packets required? Press 1. Yes 2. No\n");
+	scanf("%d",&ketch);
+	if(ketch==1)
+	{
+		printf("\nHow many packets?\n");
+		scanf("%d",&ketch_no);
+	}
+	printf("\nSoft drinks required? Press 1. Yes 2. No\n");
+	scanf("%d",&drinks);
+	if(drinks==1)
+	{
+		printf("\nHow many cans?\n");
+		scanf("%d",&drinks_no);
+	}
+	printf("Is it take-away? Press 1. Yes 2. No\n");
+	scanf("%d",&take_away);
+	
+	//Bill  Calculations
+	if(option==1 && type1==1)
+	{
+		bp=300;
+	}
+	if(option==1 && type1==2)
+	{
+		bp=400;
+	}
+	if(option==2 && type2==1)
+	{
+		bp=600;
+	}
+	if(option==2 && type2==2)
+	{
+		bp=800;
+	}
+	printf("\n*Pizza Purchase Bill*");
+    printf("\nBase price of the pizza: %d",bp);
+ 
+    //Cheese
+    if(cheese==1)
+    {
+    	cheese_price=100;
+    }
+	else
+	{
+	cheese_price=0;     
+	}
+    printf("\nExtra Cheese Charges: %d",cheese_price);
+  
+    //Toppings
+	if(toppings==1)
+	{
+	toppings_price=100;
+	}
+	if(toppings==2) 
+	{
+	toppings_price=0;
+	}
+	printf("\nExtra Toppings Charges: %d",toppings_price);
+	
+	//WaterBottle
+	if(water==1)
+	{
+		water_price=water_no*20;
+	}
+	if(water==2)
+	{
+		water_price=0;
+	}
+	printf("\nWater Bottle Charges: %d",water_price);
+	
+	//Ketchup
+	if(ketch==1)
+	{
+		ketch_price=ketch_no*5;
+	}
+	if(ketch==2)
+	{
+		ketch_price=0;
+	}
+	printf("\nKetchup Packet Charges: %d",ketch_price);
+	
+	//Soft Drinks
+	if(drinks==1)
+	{
+		drinks_price=drinks_no*75;
+	}
+	if(drinks==2)
+	{
+		drinks_price=0;
+	}
+	printf("\nSoft Drinks Charges: %d",drinks_price);
+	
+	//Take Away
+	if(take_away==1)
+	{
+		takew_price=20;
+	}
+	if(take_away==2)
+	{
+		takew_price=0;
+	}
+	printf("\nTake-away Charges: %d",takew_price);
+	printf("\n----------------------------");
+	
+	//Bill without GST
+	bill=bp+cheese_price+toppings_price+water_price+ketch_price+drinks_price+takew_price;
+	printf("\nTotal Amount Payable: %d",bill);
+	//GST
+	gst=(bill*0.18);
+	printf("\nGST Amount = %d",gst);
+	
+	//Total Bill
+	tot_bill=bill+gst;
+	printf("\nNet Amount Payable: %d",tot_bill);
+	return 0;
+}
